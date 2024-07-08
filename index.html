@@ -108,13 +108,7 @@
                     We're Officially married
                   </h3>
                 </div>
-                <button
-                  type="button"
-                  class="btn-play mx-auto"
-                  data-toggle="modal"
-                  data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
-                  data-target="#videoModal"
-                >
+                <button type="button" class="btn-play mx-auto" id="playButton">
                   <span></span>
                 </button>
               </div>
@@ -143,15 +137,13 @@
                     class="text-uppercase font-weight-normal text-white m-0"
                     style="letter-spacing: 2px"
                   >
-                    We're getting married
+                    We're Officially married
                   </h3>
                 </div>
                 <button
                   type="button"
                   class="btn-play mx-auto"
-                  data-toggle="modal"
-                  data-src="https://www.youtube.com/embed/DWRcNpR6Kdc"
-                  data-target="#videoModal"
+                  id="playButton_1"
                 >
                   <span></span>
                 </button>
@@ -180,6 +172,47 @@
       </div>
     </div>
     <!-- Carousel End -->
+
+    <!-- Script for playing the audio -->
+
+    <script>
+      const playButton = document.getElementById("playButton");
+      const playButton_1 = document.getElementById("playButton_1");
+      const audio = new Audio("iam-9_E_03.mp3");
+
+      playButton.addEventListener("click", () => {
+        audio.play();
+
+        playButton.disabled = true;
+        playButton.style.opacity = 0.5;
+
+        playButton_1.disabled = true;
+        playButton_1.style.opacity = 0.5;
+
+        audio.addEventListener("ended", () => {
+          playButton.disabled = false;
+          playButton.style.opacity = 1;
+          playButton_1.disabled = false;
+          playButton_1.style.opacity = 1;
+        });
+      });
+
+      playButton_1.addEventListener("click", () => {
+        audio.play();
+
+        playButton_1.disabled = true;
+        playButton.style.opacity = 0.5;
+
+        audio.addEventListener("ended", () => {
+          playButton_1.disabled = false;
+          playButton_1.style.opacity = 1;
+          playButton.disabled = false;
+          playButton.style.opacity = 1;
+        });
+      });
+    </script>
+
+    <!-- Script for playing the audio Ends -->
 
     <!-- Video Modal Start -->
     <div
