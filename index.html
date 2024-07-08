@@ -201,6 +201,9 @@
         audio.play();
 
         playButton_1.disabled = true;
+        playButton_1.style.opacity = 0.5;
+
+        playButton.disabled = true;
         playButton.style.opacity = 0.5;
 
         audio.addEventListener("ended", () => {
